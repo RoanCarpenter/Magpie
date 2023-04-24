@@ -22,7 +22,7 @@ public class Magpie2
     {
         return "Hello, let's talk.";
     }
-    
+
     /**
      * Gives a response to a user statement
      * 
@@ -30,43 +30,47 @@ public class Magpie2
      *            the user statement
      * @return a response based on the rules given
      */
-    public String getResponse(String statement)
-    {
-         String response = "";
-        String S1 = statement.index;
-        String tr = S1.trim();
-        if (statement.indexOf("no") >= 0)
-        {
+    public String getResponse(String statement) {
+
+        String response = "";
+
+        if (statement.trim().length() == 0) {
+            response = "Please enter something.";
+        }
+        else if (statement.indexOf("no") >= 0) {
             response = "Why so negative?";
         }
         else if (statement.indexOf("mother") >= 0
-                || statement.indexOf("father") >= 0
-                || statement.indexOf("sister") >= 0
-                || statement.indexOf("brother") >= 0)
-        {
+        || statement.indexOf("father") >= 0
+        || statement.indexOf("sister") >= 0
+        || statement.indexOf("brother") >= 0) {
             response = "Tell me more about your family.";
         }
-        else if (statement.indexOf("cat") >= 0)
-        {
+        else if (statement.indexOf("cat") >= 0) {
             response = "Tell me more about your pets.";
         }
         else if (statement.indexOf("Mr.") >=0 
-                || statement.indexOf("Ms.") >= 0
-                || statement.indexOf("Mrs.") >=0 )
-        {
-            response = "They sound liek a good teacher.";
+        || statement.indexOf("Ms.") >= 0
+        || statement.indexOf("Mrs.") >=0 ) {
+            response = "They sound like a good teacher.";
         }
-        else if (trim(S1) > 0)
+        else if(statement.indexOf("Bannana") >= 0) 
         {
-            response = "Say something please";
+            response = "peely";
         }
-        else
+        else if(statement.indexOf("How") >= 0) {
+            response = "Whie?";
+        }
+        else if(statement.indexOf("Play") >= 0) 
         {
+            response = "gwound";
+        }
+        else {
             response = getRandomResponse();
         }
+
         return response;
     }
-
 
     /**
      * Pick a default response to use if nothing else fits.
@@ -78,7 +82,7 @@ public class Magpie2
         double r = Math.random();
         int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
         String response = "";
-        
+
         if (whichResponse == 0)
         {
             response = "Interesting, tell me more.";
