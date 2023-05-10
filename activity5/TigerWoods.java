@@ -22,7 +22,7 @@ public class TigerWoods
      */    
     public String getGreeting()
     {
-        return "Hello, let's talk.";
+        return "Hello, I'm Tiger Woods";
     }
     
     /**
@@ -39,16 +39,32 @@ public class TigerWoods
         {
             response = "Say something, please.";
         }
-
-        else if (findKeyword(statement, "no") >= 0)
+        else if (findKeyword(statement, "crash") >= 0) {
+            response = "I don't like to make statements on my crash.";
+        } 
+        else if (findKeyword(statement, "car") >= 0
+            || findKeyword(statement, "cars") >= 0)
         {
-            response = "You don't like golf?";
+            response = "I don't like cars.";
         }
-        else if (findKeyword(statement, "mother") >= 0)
+        else if (findKeyword(statement, "affair") >= 0
+                    || findKeyword(statement, "Rachel") >= 0)    
+        {
+            response = "I don't know what you're talking about.";
+        }
+        
+        else if (findKeyword(statement, "Wife") >= 0
+            || findKeyword(statement, "Elin") >= 0){
+                response = "...";
+            }
+        else if (findKeyword(statement, "mother") >= 0
+            ||findKeyword(statement, "mom") >= 0)
         {
             response = "My mom is wonderful.";
         }
-        else if (findKeyword(statement, "father") >= 0) {
+        else if (findKeyword(statement, "father") >= 0
+            || findKeyword(statement, "dad") >= 0) 
+        {
             response = "I love my pops";
         }
         else if (findKeyword(statement, "brother") >= 0)
@@ -59,10 +75,17 @@ public class TigerWoods
         {
             response = "my sister is also a professional golfer";
         }
+        else if (findKeyword(statement, "children") >= 0) {
+            response = "I have 2 kids, Charlie and Sam.";
+        }
+        else if (findKeyword(statement, "daughter") >= 0
+                || findKeyword(statement, "Sam") >= 0){
+                    response = "My daughter is very nice.";
+                }
         else if(findKeyword(statement, "son") >= 0
                 || findKeyword(statement, "Charlie")>= 0)
                 {
-                    response = "My son is almost as good as me at golf.";
+                    response = "My son is adept at golf.";
                 }
         else if (findKeyword(statement, "golf") >= 0)
         {
@@ -78,7 +101,13 @@ public class TigerWoods
         {
             response = transformIWantStatement(statement);
         }
-
+        else if (findKeyword(statement, "learn") >= 0){
+            response = "I learned to play from my dad.";
+        }
+        else if (findKeyword(statement, "no") >= 0)
+        {
+            response = "No?";
+        }
         else
         {
 
@@ -285,7 +314,7 @@ public class TigerWoods
     }
     private String [] randomGolfs = {"Did you know i've won 5 Masters Tournaments?",
         "I'm pretty good at golf, have won 4 PGA tournaments!",
-        "I won 3 U.S. Open Chamionships in my day!",
+        "I've won 3 U.S. Open Chamionships!",
         "I was the first golfer to ever hold all 4 professional major champion titles at the same time!"
     };
         
